@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}{{ member.name }} - Family Genealogy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="member-detail">
+        <h2>{{ member.name }}</h2>
+        <p class="dates">
+            <strong>Born:</strong> {{ member.birth_year }}<br>
+            {% if member.death_year %}
+            <strong>Died:</strong> {{ member.death_year }}
+            {% else %}
+            <strong>Status:</strong> Living
+            {% endif %}
+        </p>
+
+        {% if parents %}
+        <div class="section">
+            <h3>Parents</h3>
+            <ul>
+                {% for parent in parents %}
+                <li><a href="{{ url_for('member_detail', member_id=parent.id) }}">{{ parent.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if children %}
+        <div class="section">
+            <h3>Children</h3>
+            <ul>
+                {% for child in children %}
+                <li><a href="{{ url_for('member_detail', member_id=child.id) }}">{{ child.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    <a href="/" class="back-link">← Back to all members</a>
+</div>
+{% endblock %}

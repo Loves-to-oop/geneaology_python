@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Family Genealogy - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Family Members</h2>
+    <div class="members-grid">
+        {% for member in members %}
+        <div class="member-card">
+            <h3><a href="{{ url_for('member_detail', member_id=member.id) }}">{{ member.name }}</a></h3>
+            <p class="dates">
+                {{ member.birth_year }} - {{ member.death_year if member.death_year else 'Present' }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
