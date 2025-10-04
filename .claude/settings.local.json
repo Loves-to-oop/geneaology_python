@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(node -e \"console.log(''@I270043615371@''.replace(/@/g, ''''))\")"
     ],
     "deny": [],
     "ask": []
