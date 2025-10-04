@@ -1,6 +1,7 @@
 'use client';
 
 import { FamilyMember } from '@/lib/familyData';
+import { FamilySummary } from '@/lib/summaryAnalysis';
 import Link from 'next/link';
 import { useState } from 'react';
 import SearchBar from './SearchBar';
@@ -8,9 +9,10 @@ import Statistics from './Statistics';
 
 interface HomeClientProps {
   members: FamilyMember[];
+  summary: FamilySummary;
 }
 
-export default function HomeClient({ members }: HomeClientProps) {
+export default function HomeClient({ members, summary }: HomeClientProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'name' | 'birthYear'>('name');
 
@@ -36,31 +38,102 @@ export default function HomeClient({ members }: HomeClientProps) {
 
   return (
     <div>
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8 md:p-12 mb-12 shadow-xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-          The Cozl-Maidl Family Tree
-        </h1>
-        <p className="text-xl text-blue-100 text-center max-w-3xl mx-auto mb-3">
-          Explore {members.length} family members from the Cozl and Maidl families
-        </p>
-        <p className="text-md text-blue-200 text-center max-w-2xl mx-auto">
-          📍 Originating from Kolovec, West Bohemia, Czech Republic
-        </p>
+      {/* Compelling Hero Section */}
+      <div className="relative bg-gradient-to-br from-blue-900 via-indigo-800 to-purple-900 text-white rounded-3xl overflow-hidden shadow-2xl mb-12">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="relative z-10 p-8 md:p-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-sm uppercase tracking-wider text-blue-200 mb-4 text-center">
+              A Story of Immigration, Family, and Survival
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center leading-tight">
+              From Bohemian Villages to American Dreams
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 text-center mb-8 leading-relaxed">
+              {summary.narrative[1] || 'Follow the remarkable journey of the Cozl and Maidl families across generations and continents.'}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                href="/summary"
+                className="inline-flex items-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-xl text-lg"
+              >
+                <span>📖</span>
+                <span>Read Their Story</span>
+              </Link>
+              <a
+                href="#explore"
+                className="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 font-bold py-4 px-8 rounded-xl transition-all text-lg"
+              >
+                <span>🔍</span>
+                <span>Explore the Family</span>
+              </a>
+            </div>
+            <div className="mt-8 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold">{members.length}</div>
+                <div className="text-sm text-blue-200">Family Members</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">{summary.overview.newestBirthYear - summary.overview.oldestBirthYear}</div>
+                <div className="text-sm text-blue-200">Years of History</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">{summary.migration.keyLocations.length}</div>
+                <div className="text-sm text-blue-200">Countries</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Story Highlights */}
+      <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200 hover:shadow-xl transition">
+          <div className="text-4xl mb-3">🏰</div>
+          <h3 className="text-xl font-bold text-gray-800 mb-2">Bohemian Roots</h3>
+          <p className="text-gray-700 text-sm">
+            The family's story begins in Kolovec, a small village in West Bohemia, Czech Republic, where they lived for generations as farmers.
+          </p>
+        </div>
+        <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border-2 border-blue-200 hover:shadow-xl transition">
+          <div className="text-4xl mb-3">⚓</div>
+          <h3 className="text-xl font-bold text-gray-800 mb-2">Journey to America</h3>
+          <p className="text-gray-700 text-sm">
+            In the late 1800s and early 1900s, they made the brave crossing to America, seeking opportunity in the industrial cities of Illinois and Missouri.
+          </p>
+        </div>
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 hover:shadow-xl transition">
+          <div className="text-4xl mb-3">🌳</div>
+          <h3 className="text-xl font-bold text-gray-800 mb-2">Legacy Preserved</h3>
+          <p className="text-gray-700 text-sm">
+            This digital archive preserves {members.length} family members' stories, ensuring their memory lives on for future generations.
+          </p>
+        </div>
       </div>
 
       {/* Statistics */}
       <Statistics members={members} />
 
-      {/* Search Bar */}
-      <SearchBar onSearch={setSearchQuery} />
+      {/* Explore Section Anchor */}
+      <div id="explore" className="scroll-mt-20">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-800 mb-3">
+            Discover the Individuals
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Each person has a unique story. Search by name, explore by year, or browse the complete family tree.
+          </p>
+        </div>
 
-      {/* Sort Controls */}
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">
-          All Family Members ({filteredMembers.length})
-        </h2>
-        <div className="flex gap-2">
+        {/* Search Bar */}
+        <SearchBar onSearch={setSearchQuery} />
+
+        {/* Sort Controls */}
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-800">
+            {filteredMembers.length} {searchQuery ? 'Results' : 'Family Members'}
+          </h2>
+          <div className="flex gap-2">
           <button
             onClick={() => setSortBy('name')}
             className={`px-4 py-2 rounded-lg font-medium transition ${
@@ -81,8 +154,8 @@ export default function HomeClient({ members }: HomeClientProps) {
           >
             Sort by Year
           </button>
+          </div>
         </div>
-      </div>
 
       {/* Members Grid */}
       {sortedMembers.length > 0 ? (
@@ -128,6 +201,7 @@ export default function HomeClient({ members }: HomeClientProps) {
           <p className="text-gray-600 text-lg">No family members found matching "{searchQuery}"</p>
         </div>
       )}
+      </div>
     </div>
   );
 }
