@@ -29,48 +29,82 @@ export default function MemberPage({ params }: { params: { id: string } }) {
         children={children}
         siblings={siblings}
       />
-      <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
-        <h2 className="text-4xl font-bold text-gray-800 mb-6 border-b-4 border-blue-500 pb-3">
-          {member.name}
-        </h2>
-
-        <div className="space-y-3 text-lg mb-8 bg-gray-50 p-6 rounded-lg">
-          {member.sex && (
-            <p className="text-gray-700">
-              <span className="font-semibold">Gender:</span> {member.sex === 'M' ? 'Male' : member.sex === 'F' ? 'Female' : member.sex}
-            </p>
+      <div className="bg-white rounded-xl shadow-xl p-8 mb-6 border-t-4 border-blue-600">
+        <div className="flex items-start justify-between mb-6">
+          <div>
+            <h2 className="text-4xl font-bold text-gray-800 mb-2">
+              {member.name}
+            </h2>
+            {member.sex && (
+              <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
+                {member.sex === 'M' ? '👨 Male' : member.sex === 'F' ? '👩 Female' : member.sex}
+              </span>
+            )}
+          </div>
+          {!member.deathDate && !member.deathYear && (
+            <span className="px-4 py-2 bg-green-100 text-green-700 rounded-full font-bold text-sm">
+              ● Living
+            </span>
           )}
+        </div>
 
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
           {(member.birthDate || member.birthYear) && (
-            <div className="text-gray-700">
-              <span className="font-semibold">Born:</span> {member.birthDate || member.birthYear}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-2 border-blue-200">
+              <div className="flex items-center mb-2">
+                <span className="text-3xl mr-3">🎂</span>
+                <div>
+                  <p className="text-sm text-blue-600 font-semibold">Born</p>
+                  <p className="text-xl font-bold text-gray-800">{member.birthDate || member.birthYear}</p>
+                </div>
+              </div>
               {member.birthPlace && (
-                <div className="ml-6 text-gray-600">📍 {member.birthPlace}</div>
+                <p className="text-sm text-gray-600 mt-2 flex items-center">
+                  <span className="mr-1">📍</span> {member.birthPlace}
+                </p>
               )}
             </div>
           )}
 
-          {member.deathDate || member.deathYear ? (
-            <div className="text-gray-700">
-              <span className="font-semibold">Died:</span> {member.deathDate || member.deathYear}
+          {(member.deathDate || member.deathYear) && (
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl border-2 border-gray-200">
+              <div className="flex items-center mb-2">
+                <span className="text-3xl mr-3">†</span>
+                <div>
+                  <p className="text-sm text-gray-600 font-semibold">Died</p>
+                  <p className="text-xl font-bold text-gray-800">{member.deathDate || member.deathYear}</p>
+                </div>
+              </div>
               {member.deathPlace && (
-                <div className="ml-6 text-gray-600">📍 {member.deathPlace}</div>
+                <p className="text-sm text-gray-600 mt-2 flex items-center">
+                  <span className="mr-1">📍</span> {member.deathPlace}
+                </p>
               )}
             </div>
-          ) : (
-            <p className="text-green-600 font-semibold">● Living</p>
           )}
         </div>
 
         {member.events && member.events.length > 0 && (
           <div className="mb-8">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Life Events</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+              <span className="mr-2">📜</span> Life Events
+            </h3>
             <div className="space-y-3">
               {member.events.map((event, idx) => (
-                <div key={idx} className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
-                  <p className="font-semibold text-gray-800">{event.type}</p>
-                  {event.date && <p className="text-gray-600">📅 {event.date}</p>}
-                  {event.place && <p className="text-gray-600">📍 {event.place}</p>}
+                <div key={idx} className="bg-gradient-to-r from-indigo-50 to-purple-50 p-5 rounded-xl border-l-4 border-indigo-500 shadow-sm hover:shadow-md transition">
+                  <p className="font-bold text-gray-800 text-lg mb-1">{event.type}</p>
+                  <div className="flex flex-wrap gap-3 text-sm text-gray-600">
+                    {event.date && (
+                      <span className="flex items-center">
+                        <span className="mr-1">📅</span> {event.date}
+                      </span>
+                    )}
+                    {event.place && (
+                      <span className="flex items-center">
+                        <span className="mr-1">📍</span> {event.place}
+                      </span>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -136,9 +170,10 @@ export default function MemberPage({ params }: { params: { id: string } }) {
 
       <Link
         href="/"
-        className="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors"
+        className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg"
       >
-        ← Back to all members
+        <span>←</span>
+        <span>Back to All Members</span>
       </Link>
     </div>
   );
