@@ -9,9 +9,12 @@ export interface FamilyMember {
   deathYear: number | null;
   birthDate: string | null;
   deathDate: string | null;
+  birthPlace: string | null;
+  deathPlace: string | null;
   sex: string | null;
   parentIds: string[];
   spouseIds: string[];
+  events: Array<{type: string; date?: string; place?: string}>;
 }
 
 interface GedcomNode {
@@ -71,14 +74,35 @@ export function parseGedcomFile(filePath: string): FamilyMember[] {
     const birthDateNode = birthNode ? findNode(birthNode.children, 'DATE') : undefined;
     const birthDate = getNodeValue(birthDateNode);
     const birthYear = extractYear(birthDate);
+    const birthPlaceNode = birthNode ? findNode(birthNode.children, 'PLAC') : undefined;
+    const birthPlace = getNodeValue(birthPlaceNode);
 
     const deathNode = findNode(indi.children, 'DEAT');
     const deathDateNode = deathNode ? findNode(deathNode.children, 'DATE') : undefined;
     const deathDate = getNodeValue(deathDateNode);
     const deathYear = extractYear(deathDate);
+    const deathPlaceNode = deathNode ? findNode(deathNode.children, 'PLAC') : undefined;
+    const deathPlace = getNodeValue(deathPlaceNode);
 
     const sexNode = findNode(indi.children, 'SEX');
     const sex = getNodeValue(sexNode);
+
+    // Parse other events (marriages, immigration, etc.)
+    const eventNodes = findAllNodes(indi.children, 'EVEN');
+    const events: Array<{type: string; date?: string; place?: string}> = [];
+
+    for (const event of eventNodes) {
+      const typeNode = findNode(event.children, 'TYPE');
+      const type = getNodeValue(typeNode);
+      const dateNode = findNode(event.children, 'DATE');
+      const date = getNodeValue(dateNode);
+      const placeNode = findNode(event.children, 'PLAC');
+      const place = getNodeValue(placeNode);
+
+      if (type) {
+        events.push({ type, date: date || undefined, place: place || undefined });
+      }
+    }
 
     individuals.set(id, {
       id,
@@ -87,9 +111,12 @@ export function parseGedcomFile(filePath: string): FamilyMember[] {
       deathYear,
       birthDate,
       deathDate,
+      birthPlace,
+      deathPlace,
       sex,
       parentIds: [],
       spouseIds: [],
+      events,
     });
   }
 
@@ -163,9 +190,12 @@ export function loadFamilyData(): FamilyMember[] {
       deathYear: 1995,
       birthDate: '1 JAN 1920',
       deathDate: '15 DEC 1995',
+      birthPlace: 'New York, USA',
+      deathPlace: 'Boston, USA',
       sex: 'M',
       parentIds: [],
-      spouseIds: ['2']
+      spouseIds: ['2'],
+      events: []
     },
     {
       id: '2',
@@ -174,9 +204,12 @@ export function loadFamilyData(): FamilyMember[] {
       deathYear: 2010,
       birthDate: '5 MAR 1925',
       deathDate: '20 JUN 2010',
+      birthPlace: 'Chicago, USA',
+      deathPlace: 'Boston, USA',
       sex: 'F',
       parentIds: [],
-      spouseIds: ['1']
+      spouseIds: ['1'],
+      events: []
     },
     {
       id: '3',
@@ -185,9 +218,12 @@ export function loadFamilyData(): FamilyMember[] {
       deathYear: null,
       birthDate: '10 JUL 1950',
       deathDate: null,
+      birthPlace: 'Boston, USA',
+      deathPlace: null,
       sex: 'M',
       parentIds: ['1', '2'],
-      spouseIds: ['4']
+      spouseIds: ['4'],
+      events: []
     },
     {
       id: '4',
@@ -196,9 +232,12 @@ export function loadFamilyData(): FamilyMember[] {
       deathYear: null,
       birthDate: '22 APR 1955',
       deathDate: null,
+      birthPlace: 'Philadelphia, USA',
+      deathPlace: null,
       sex: 'F',
       parentIds: [],
-      spouseIds: ['3']
+      spouseIds: ['3'],
+      events: []
     },
     {
       id: '5',
@@ -207,9 +246,12 @@ export function loadFamilyData(): FamilyMember[] {
       deathYear: null,
       birthDate: '8 SEP 1980',
       deathDate: null,
+      birthPlace: 'Boston, USA',
+      deathPlace: null,
       sex: 'M',
       parentIds: ['3', '4'],
-      spouseIds: []
+      spouseIds: [],
+      events: []
     },
   ];
 }

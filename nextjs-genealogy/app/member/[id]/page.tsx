@@ -21,31 +21,48 @@ export default function MemberPage({ params }: { params: { id: string } }) {
           {member.name}
         </h2>
 
-        <div className="space-y-2 text-lg mb-8">
-          {member.birthDate && (
+        <div className="space-y-3 text-lg mb-8 bg-gray-50 p-6 rounded-lg">
+          {member.sex && (
             <p className="text-gray-700">
-              <span className="font-semibold">Born:</span> {member.birthDate} {member.birthYear && `(${member.birthYear})`}
+              <span className="font-semibold">Gender:</span> {member.sex === 'M' ? 'Male' : member.sex === 'F' ? 'Female' : member.sex}
             </p>
           )}
-          {!member.birthDate && member.birthYear && (
-            <p className="text-gray-700">
-              <span className="font-semibold">Born:</span> {member.birthYear}
-            </p>
+
+          {(member.birthDate || member.birthYear) && (
+            <div className="text-gray-700">
+              <span className="font-semibold">Born:</span> {member.birthDate || member.birthYear}
+              {member.birthPlace && (
+                <div className="ml-6 text-gray-600">📍 {member.birthPlace}</div>
+              )}
+            </div>
           )}
-          {member.deathDate ? (
-            <p className="text-gray-700">
-              <span className="font-semibold">Died:</span> {member.deathDate} {member.deathYear && `(${member.deathYear})`}
-            </p>
-          ) : member.deathYear ? (
-            <p className="text-gray-700">
-              <span className="font-semibold">Died:</span> {member.deathYear}
-            </p>
+
+          {member.deathDate || member.deathYear ? (
+            <div className="text-gray-700">
+              <span className="font-semibold">Died:</span> {member.deathDate || member.deathYear}
+              {member.deathPlace && (
+                <div className="ml-6 text-gray-600">📍 {member.deathPlace}</div>
+              )}
+            </div>
           ) : (
-            <p className="text-gray-700">
-              <span className="font-semibold">Status:</span> Living
-            </p>
+            <p className="text-green-600 font-semibold">● Living</p>
           )}
         </div>
+
+        {member.events && member.events.length > 0 && (
+          <div className="mb-8">
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Life Events</h3>
+            <div className="space-y-3">
+              {member.events.map((event, idx) => (
+                <div key={idx} className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                  <p className="font-semibold text-gray-800">{event.type}</p>
+                  {event.date && <p className="text-gray-600">📅 {event.date}</p>}
+                  {event.place && <p className="text-gray-600">📍 {event.place}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {spouses.length > 0 && (
           <div className="mb-8">
