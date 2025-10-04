@@ -37,6 +37,12 @@ export default function RootLayout({
                   👥 All Members
                 </Link>
                 <Link
+                  href="/summary"
+                  className="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition font-medium"
+                >
+                  📖 Summary
+                </Link>
+                <Link
                   href="/locations"
                   className="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition font-medium"
                 >

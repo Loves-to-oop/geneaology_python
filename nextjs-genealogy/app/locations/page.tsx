@@ -1,28 +1,32 @@
 import { familyMembers } from '@/lib/familyData';
-import { getLocationInfo } from '@/lib/locationData';
+import { getLocationInfo, getCanonicalLocation } from '@/lib/locationData';
 import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
 export default function LocationsPage() {
-  // Gather all unique locations from birth and death places
+  // Gather all unique locations from birth and death places, using canonical names
   const locationMap = new Map<string, { birthCount: number; deathCount: number; members: typeof familyMembers }>();
 
   familyMembers.forEach(member => {
     if (member.birthPlace) {
-      const existing = locationMap.get(member.birthPlace) || { birthCount: 0, deathCount: 0, members: [] };
+      const canonical = getCanonicalLocation(member.birthPlace);
+      const existing = locationMap.get(canonical) || { birthCount: 0, deathCount: 0, members: [] };
       existing.birthCount++;
-      existing.members.push(member);
-      locationMap.set(member.birthPlace, existing);
+      if (!existing.members.find(m => m.id === member.id)) {
+        existing.members.push(member);
+      }
+      locationMap.set(canonical, existing);
     }
 
-    if (member.deathPlace && member.deathPlace !== member.birthPlace) {
-      const existing = locationMap.get(member.deathPlace) || { birthCount: 0, deathCount: 0, members: [] };
+    if (member.deathPlace) {
+      const canonical = getCanonicalLocation(member.deathPlace);
+      const existing = locationMap.get(canonical) || { birthCount: 0, deathCount: 0, members: [] };
       existing.deathCount++;
       if (!existing.members.find(m => m.id === member.id)) {
         existing.members.push(member);
       }
-      locationMap.set(member.deathPlace, existing);
+      locationMap.set(canonical, existing);
     }
   });
 
