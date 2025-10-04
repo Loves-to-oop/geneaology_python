@@ -56,19 +56,27 @@ export function parseGedcomFile(filePath: string): FamilyMember[] {
   console.log(`Found ${indiNodes.length} individuals in GEDCOM`);
 
   for (const indi of indiNodes) {
-    // Extract ID from pointer - handle different formats
-    let id = indi.data?.pointer?.replace(/@/g, '') || '';
+    // Extract ID - for INDI nodes it's in xref_id, not pointer
+    let id = '';
 
-    // If no ID from pointer, try to generate one from the individual
+    if (indi.data?.xref_id) {
+      id = indi.data.xref_id.replace(/@/g, '');
+    } else if (indi.data?.pointer) {
+      id = indi.data.pointer.replace(/@/g, '');
+    }
+
+    // If no ID, use fallback
     if (!id) {
-      // Use index as fallback ID
       id = `INDI_${indiNodes.indexOf(indi)}`;
+      console.log('Warning: No xref_id found for individual, using fallback:', id);
     }
 
     const nameNode = findNode(indi.children, 'NAME');
     const name = getNodeValue(nameNode)?.replace(/\//g, '').trim() || 'Unknown';
 
-    console.log(`Parsing individual: ${id} - ${name}`);
+    if (indiNodes.indexOf(indi) < 2) {
+      console.log(`Parsing individual: ${id} - ${name}`);
+    }
 
     const birthNode = findNode(indi.children, 'BIRT');
     const birthDateNode = birthNode ? findNode(birthNode.children, 'DATE') : undefined;
@@ -122,20 +130,52 @@ export function parseGedcomFile(filePath: string): FamilyMember[] {
 
   console.log(`Total individuals parsed: ${individuals.size}`);
 
+  // Debug: Show first 5 individual IDs stored in the map
+  const storedIds = Array.from(individuals.keys()).slice(0, 5);
+  console.log('First 5 individual IDs stored in map:', storedIds);
+
   // Parse families
   const famNodes = findAllNodes(parsedArray, 'FAM');
 
+  console.log(`Found ${famNodes.length} families in GEDCOM`);
+
   for (const fam of famNodes) {
-    const famId = fam.data?.pointer?.replace('@', '').replace('@', '') || '';
+    const famId = fam.data?.xref_id?.replace(/@/g, '') || fam.data?.pointer?.replace(/@/g, '') || '';
 
     const husbNode = findNode(fam.children, 'HUSB');
-    const husbandId = husbNode?.data?.pointer?.replace('@', '').replace('@', '') || husbNode?.value?.replace('@', '').replace('@', '');
+    let husbandId = '';
+    if (husbNode?.data?.pointer) {
+      husbandId = husbNode.data.pointer.replace(/@/g, '');
+    } else if (husbNode?.value) {
+      husbandId = husbNode.value.replace(/@/g, '');
+    }
+
+    // Debug first family
+    if (famNodes.indexOf(fam) === 0) {
+      console.log('First family HUSB node:', JSON.stringify(husbNode, null, 2));
+    }
 
     const wifeNode = findNode(fam.children, 'WIFE');
-    const wifeId = wifeNode?.data?.pointer?.replace('@', '').replace('@', '') || wifeNode?.value?.replace('@', '').replace('@', '');
+    let wifeId = '';
+    if (wifeNode?.data?.pointer) {
+      wifeId = wifeNode.data.pointer.replace(/@/g, '');
+    } else if (wifeNode?.value) {
+      wifeId = wifeNode.value.replace(/@/g, '');
+    }
 
     const childNodes = findAllNodes(fam.children, 'CHIL');
-    const childIds = childNodes.map(c => c.data?.pointer?.replace('@', '').replace('@', '') || c.value?.replace('@', '').replace('@', '')).filter(Boolean);
+    const childIds = childNodes.map(c => {
+      if (c.data?.pointer) {
+        return c.data.pointer.replace(/@/g, '');
+      } else if (c.value) {
+        return c.value.replace(/@/g, '');
+      }
+      return '';
+    }).filter(Boolean);
+
+    if (husbandId || wifeId || childIds.length > 0) {
+      console.log(`Family: H=${husbandId || 'none'}, W=${wifeId || 'none'}, Children=${childIds.length}`);
+    }
 
     families.set(famId, { husbandId, wifeId, childIds });
 
@@ -149,6 +189,8 @@ export function parseGedcomFile(filePath: string): FamilyMember[] {
       if (wife && !wife.spouseIds.includes(husbandId)) {
         wife.spouseIds.push(husbandId);
       }
+      if (!husband) console.log(`Warning: Husband ${husbandId} not found in individuals map`);
+      if (!wife) console.log(`Warning: Wife ${wifeId} not found in individuals map`);
     }
 
     // Add parent relationships to children

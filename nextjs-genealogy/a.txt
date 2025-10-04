@@ -1,0 +1,745 @@
+Dependencies already installed.
+Starting Next.js development server...
+
+> family-genealogy@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.0
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 1105ms
+ ○ Compiling /member/[id] ...
+ ✓ Compiled /member/[id] in 746ms (736 modules)
+ ✓ Compiled in 53ms (253 modules)
+Found 402 individuals in GEDCOM
+First INDI node structure: {
+  "type": "INDI",
+  "data": {
+    "formal_name": "INDIVIDUAL",
+    "xref_id": "@I270043615371@"
+  },
+  "children": [
+    {
+      "type": "NAME",
+      "data": {
+        "formal_name": "NAME"
+      },
+      "value": "Aloizie (Louise) /Cozl/",
+      "children": [
+        {
+          "type": "GIVN",
+
+Warning: No pointer found for individual, using fallback: INDI_0
+Parsing individual: INDI_0 - Aloizie (Louise) Cozl
+Parsing individual: INDI_1 - Ondrej Cozl
+Total individuals parsed: 402
+First 5 individual IDs stored in map: [ 'INDI_0', 'INDI_1', 'INDI_2', 'INDI_3', 'INDI_4' ]
+Found 115 families in GEDCOM
+First family HUSB node: {
+  "type": "HUSB",
+  "data": {
+    "formal_name": "HUSBAND",
+    "pointer": "@I270043616228@"
+  },
+  "children": []
+}
+Family: H=I270043616228, W=I270043616229, Children=6
+Warning: Husband I270043616228 not found in individuals map
+Warning: Wife I270043616229 not found in individuals map
+Family: H=I270101046136, W=I270101046137, Children=2
+Warning: Husband I270101046136 not found in individuals map
+Warning: Wife I270101046137 not found in individuals map
+Family: H=I270101210922, W=I270101210998, Children=1
+Warning: Husband I270101210922 not found in individuals map
+Warning: Wife I270101210998 not found in individuals map
+Family: H=I270101042042, W=I270101042043, Children=10
+Warning: Husband I270101042042 not found in individuals map
+Warning: Wife I270101042043 not found in individuals map
+Family: H=I270101225186, W=I270101224306, Children=5
+Warning: Husband I270101225186 not found in individuals map
+Warning: Wife I270101224306 not found in individuals map
+Family: H=I272032207958, W=I272032207960, Children=4
+Warning: Husband I272032207958 not found in individuals map
+Warning: Wife I272032207960 not found in individuals map
+Family: H=I270101353636, W=I270101042047, Children=10
+Warning: Husband I270101353636 not found in individuals map
+Warning: Wife I270101042047 not found in individuals map
+Family: H=I270101061493, W=I270101061507, Children=1
+Warning: Husband I270101061493 not found in individuals map
+Warning: Wife I270101061507 not found in individuals map
+Family: H=I270101209979, W=I270101209871, Children=0
+Warning: Husband I270101209979 not found in individuals map
+Warning: Wife I270101209871 not found in individuals map
+Family: H=I270101354208, W=I270044025291, Children=1
+Warning: Husband I270101354208 not found in individuals map
+Warning: Wife I270044025291 not found in individuals map
+Family: H=I270101206881, W=I270101208085, Children=4
+Warning: Husband I270101206881 not found in individuals map
+Warning: Wife I270101208085 not found in individuals map
+Family: H=I270043616106, W=I270044025289, Children=9
+Warning: Husband I270043616106 not found in individuals map
+Warning: Wife I270044025289 not found in individuals map
+Family: H=I270101214062, W=I270101214150, Children=0
+Warning: Husband I270101214062 not found in individuals map
+Warning: Wife I270101214150 not found in individuals map
+Family: H=I270159024793, W=I270159024899, Children=0
+Warning: Husband I270159024793 not found in individuals map
+Warning: Wife I270159024899 not found in individuals map
+Family: H=I270101374805, W=I270101376021, Children=4
+Warning: Husband I270101374805 not found in individuals map
+Warning: Wife I270101376021 not found in individuals map
+Family: H=I270043615786, W=I270043617221, Children=0
+Warning: Husband I270043615786 not found in individuals map
+Warning: Wife I270043617221 not found in individuals map
+Family: H=I270101215519, W=I270101215572, Children=1
+Warning: Husband I270101215519 not found in individuals map
+Warning: Wife I270101215572 not found in individuals map
+Family: H=I270043615786, W=I270043617216, Children=4
+Warning: Husband I270043615786 not found in individuals map
+Warning: Wife I270043617216 not found in individuals map
+Family: H=I270043616707, W=I270043615650, Children=0
+Warning: Husband I270043616707 not found in individuals map
+Warning: Wife I270043615650 not found in individuals map
+Family: H=I270043616287, W=I270101374802, Children=5
+Warning: Husband I270043616287 not found in individuals map
+Warning: Wife I270101374802 not found in individuals map
+Family: H=I270101206877, W=I270101206878, Children=2
+Warning: Husband I270101206877 not found in individuals map
+Warning: Wife I270101206878 not found in individuals map
+Family: H=I270101054194, W=I270101054291, Children=6
+Warning: Husband I270101054194 not found in individuals map
+Warning: Wife I270101054291 not found in individuals map
+Family: H=I270151480897, W=I270151480778, Children=4
+Warning: Husband I270151480897 not found in individuals map
+Warning: Wife I270151480778 not found in individuals map
+Family: H=I270043615648, W=I270043616501, Children=0
+Warning: Husband I270043615648 not found in individuals map
+Warning: Wife I270043616501 not found in individuals map
+Family: H=I270101208367, W=I270101208370, Children=1
+Warning: Husband I270101208367 not found in individuals map
+Warning: Wife I270101208370 not found in individuals map
+Family: H=I270158648013, W=I270158646820, Children=0
+Warning: Husband I270158648013 not found in individuals map
+Warning: Wife I270158646820 not found in individuals map
+Family: H=I270043615651, W=I270043616389, Children=0
+Warning: Husband I270043615651 not found in individuals map
+Warning: Wife I270043616389 not found in individuals map
+Family: H=I270101042483, W=I270101042484, Children=6
+Warning: Husband I270101042483 not found in individuals map
+Warning: Wife I270101042484 not found in individuals map
+Family: H=I270159000114, W=I270159167176, Children=6
+Warning: Husband I270159000114 not found in individuals map
+Warning: Wife I270159167176 not found in individuals map
+Family: H=I272256702344, W=I272272107738, Children=1
+Warning: Husband I272256702344 not found in individuals map
+Warning: Wife I272272107738 not found in individuals map
+Family: H=I270101042485, W=I270101228956, Children=7
+Warning: Husband I270101042485 not found in individuals map
+Warning: Wife I270101228956 not found in individuals map
+Family: H=I270101042485, W=I270101228964, Children=0
+Warning: Husband I270101042485 not found in individuals map
+Warning: Wife I270101228964 not found in individuals map
+Family: H=I270101357842, W=I270101357880, Children=1
+Warning: Husband I270101357842 not found in individuals map
+Warning: Wife I270101357880 not found in individuals map
+Family: H=I270159167194, W=I270159167189, Children=1
+Warning: Husband I270159167194 not found in individuals map
+Warning: Wife I270159167189 not found in individuals map
+Family: H=I270101210700, W=I270101061410, Children=0
+Warning: Husband I270101210700 not found in individuals map
+Warning: Wife I270101061410 not found in individuals map
+Family: H=I270043615787, W=I270101044505, Children=4
+Warning: Husband I270043615787 not found in individuals map
+Warning: Wife I270101044505 not found in individuals map
+Family: H=I270101056282, W=I270101056253, Children=1
+Warning: Husband I270101056282 not found in individuals map
+Warning: Wife I270101056253 not found in individuals map
+Family: H=I270101044508, W=I270101047331, Children=0
+Warning: Husband I270101044508 not found in individuals map
+Warning: Wife I270101047331 not found in individuals map
+Family: H=I270043615631, W=I270043615633, Children=9
+Warning: Husband I270043615631 not found in individuals map
+Warning: Wife I270043615633 not found in individuals map
+Family: H=I270043615637, W=I270044281765, Children=4
+Warning: Husband I270043615637 not found in individuals map
+Warning: Wife I270044281765 not found in individuals map
+Family: H=I270101359876, W=I270101359863, Children=0
+Warning: Husband I270101359876 not found in individuals map
+Warning: Wife I270101359863 not found in individuals map
+Family: H=I270101209320, W=I270101209349, Children=1
+Warning: Husband I270101209320 not found in individuals map
+Warning: Wife I270101209349 not found in individuals map
+Family: H=I270044282673, W=I270043615639, Children=0
+Warning: Husband I270044282673 not found in individuals map
+Warning: Wife I270043615639 not found in individuals map
+Family: H=I270159021811, W=I270159021970, Children=2
+Warning: Husband I270159021811 not found in individuals map
+Warning: Wife I270159021970 not found in individuals map
+Family: H=I270043615635, W=I270044023522, Children=0
+Warning: Husband I270043615635 not found in individuals map
+Warning: Wife I270044023522 not found in individuals map
+Family: H=I270043615635, W=I270044023523, Children=0
+Warning: Husband I270043615635 not found in individuals map
+Warning: Wife I270044023523 not found in individuals map
+Family: H=I270043616608, W=I270043615644, Children=0
+Warning: Husband I270043616608 not found in individuals map
+Warning: Wife I270043615644 not found in individuals map
+Family: H=I270101211353, W=I270101211405, Children=1
+Warning: Husband I270101211353 not found in individuals map
+Warning: Wife I270101211405 not found in individuals map
+Family: H=I270043615647, W=I270043616769, Children=0
+Warning: Husband I270043615647 not found in individuals map
+Warning: Wife I270043616769 not found in individuals map
+Family: H=I270044023398, W=I270043615640, Children=0
+Warning: Husband I270044023398 not found in individuals map
+Warning: Wife I270043615640 not found in individuals map
+Family: H=I270043615641, W=I270044281951, Children=3
+Warning: Husband I270043615641 not found in individuals map
+Warning: Wife I270044281951 not found in individuals map
+Family: H=I270043615783, W=I270044282791, Children=6
+Warning: Husband I270043615783 not found in individuals map
+Warning: Wife I270044282791 not found in individuals map
+Family: H=I270044282475, W=I270043615642, Children=8
+Warning: Husband I270044282475 not found in individuals map
+Warning: Wife I270043615642 not found in individuals map
+Family: H=I270101226189, W=I270101226249, Children=2
+Warning: Husband I270101226189 not found in individuals map
+Warning: Wife I270101226249 not found in individuals map
+Family: H=I270043615643, W=I270044023852, Children=0
+Warning: Husband I270043615643 not found in individuals map
+Warning: Wife I270044023852 not found in individuals map
+Family: H=I270101230583, W=I270101230618, Children=3
+Warning: Husband I270101230583 not found in individuals map
+Warning: Wife I270101230618 not found in individuals map
+Family: H=I270101226995, W=I270101225187, Children=5
+Warning: Husband I270101226995 not found in individuals map
+Warning: Wife I270101225187 not found in individuals map
+Family: H=I270101353459, W=I270101353471, Children=1
+Warning: Husband I270101353459 not found in individuals map
+Warning: Wife I270101353471 not found in individuals map
+Family: H=I270043616108, W=I270101048860, Children=6
+Warning: Husband I270043616108 not found in individuals map
+Warning: Wife I270101048860 not found in individuals map
+Family: H=I270043616104, W=I270043616105, Children=5
+Warning: Husband I270043616104 not found in individuals map
+Warning: Wife I270043616105 not found in individuals map
+Family: H=I270043616107, W=I270101048365, Children=5
+Warning: Husband I270043616107 not found in individuals map
+Warning: Wife I270101048365 not found in individuals map
+Family: H=I270043615784, W=I270044024139, Children=6
+Warning: Husband I270043615784 not found in individuals map
+Warning: Wife I270044024139 not found in individuals map
+Family: H=I270101212640, W=I270101212753, Children=1
+Warning: Husband I270101212640 not found in individuals map
+Warning: Wife I270101212753 not found in individuals map
+Family: H=I270101226464, W=I270101226474, Children=1
+Warning: Husband I270101226464 not found in individuals map
+Warning: Wife I270101226474 not found in individuals map
+Family: H=I270101353419, W=I270101353451, Children=1
+Warning: Husband I270101353419 not found in individuals map
+Warning: Wife I270101353451 not found in individuals map
+Family: H=I270159020500, W=I270159020570, Children=1
+Warning: Husband I270159020500 not found in individuals map
+Warning: Wife I270159020570 not found in individuals map
+Family: H=I270101051864, W=I270044024002, Children=5
+Warning: Husband I270101051864 not found in individuals map
+Warning: Wife I270044024002 not found in individuals map
+Family: H=I270101230543, W=I270101230557, Children=2
+Warning: Husband I270101230543 not found in individuals map
+Warning: Wife I270101230557 not found in individuals map
+Family: H=I270101354438, W=I270101059219, Children=5
+Warning: Husband I270101354438 not found in individuals map
+Warning: Wife I270101059219 not found in individuals map
+Family: H=I270159025210, W=I270159001355, Children=1
+Warning: Husband I270159025210 not found in individuals map
+Warning: Wife I270159001355 not found in individuals map
+Family: H=I272003211853, W=I272003211868, Children=1
+Warning: Husband I272003211853 not found in individuals map
+Warning: Wife I272003211868 not found in individuals map
+Family: H=I270101053458, W=I270101053374, Children=0
+Warning: Husband I270101053458 not found in individuals map
+Warning: Wife I270101053374 not found in individuals map
+Family: H=I270101058580, W=I270101136317, Children=0
+Warning: Husband I270101058580 not found in individuals map
+Warning: Wife I270101136317 not found in individuals map
+Family: H=I270101212602, W=I270101062672, Children=0
+Warning: Husband I270101212602 not found in individuals map
+Warning: Wife I270101062672 not found in individuals map
+Family: H=I270159025624, W=I270159025747, Children=0
+Warning: Husband I270159025624 not found in individuals map
+Warning: Wife I270159025747 not found in individuals map
+Family: H=I270159191128, W=I270159191151, Children=1
+Warning: Husband I270159191128 not found in individuals map
+Warning: Wife I270159191151 not found in individuals map
+Family: H=I270043615785, W=I270101066146, Children=6
+Warning: Husband I270043615785 not found in individuals map
+Warning: Wife I270101066146 not found in individuals map
+Family: H=I270159000368, W=I270159000172, Children=5
+Warning: Husband I270159000368 not found in individuals map
+Warning: Wife I270159000172 not found in individuals map
+Family: H=I270101211765, W=I270101211811, Children=0
+Warning: Husband I270101211765 not found in individuals map
+Warning: Wife I270101211811 not found in individuals map
+Family: H=I270043615975, W=I270101044381, Children=7
+Warning: Husband I270043615975 not found in individuals map
+Warning: Wife I270101044381 not found in individuals map
+Family: H=I270043615969, W=I270043615970, Children=6
+Warning: Husband I270043615969 not found in individuals map
+Warning: Wife I270043615970 not found in individuals map
+Family: H=I270043615969, W=I270043616882, Children=0
+Warning: Husband I270043615969 not found in individuals map
+Warning: Wife I270043616882 not found in individuals map
+Family: H=I270044023999, W=I270043615971, Children=8
+Warning: Husband I270044023999 not found in individuals map
+Warning: Wife I270043615971 not found in individuals map
+Family: H=I270101376025, W=I270101378162, Children=0
+Warning: Husband I270101376025 not found in individuals map
+Warning: Wife I270101378162 not found in individuals map
+Family: H=I270043615476, W=I270043615371, Children=0
+Warning: Husband I270043615476 not found in individuals map
+Warning: Wife I270043615371 not found in individuals map
+Family: H=I270043615372, W=I270043615473, Children=8
+Warning: Husband I270043615372 not found in individuals map
+Warning: Wife I270043615473 not found in individuals map
+Family: H=I270043615474, W=I270043615371, Children=0
+Warning: Husband I270043615474 not found in individuals map
+Warning: Wife I270043615371 not found in individuals map
+Family: H=I270043615475, W=I270043615371, Children=0
+Warning: Husband I270043615475 not found in individuals map
+Warning: Wife I270043615371 not found in individuals map
+Family: H=I270158644657, W=I270158644625, Children=6
+Warning: Husband I270158644657 not found in individuals map
+Warning: Wife I270158644625 not found in individuals map
+Family: H=I270101046873, W=I270101046808, Children=2
+Warning: Husband I270101046873 not found in individuals map
+Warning: Wife I270101046808 not found in individuals map
+Family: H=I270101044382, W=I270101206621, Children=0
+Warning: Husband I270101044382 not found in individuals map
+Warning: Wife I270101206621 not found in individuals map
+Family: H=I270159004628, W=I270159004603, Children=2
+Warning: Husband I270159004628 not found in individuals map
+Warning: Wife I270159004603 not found in individuals map
+Family: H=I272003452884, W=I272003452889, Children=1
+Warning: Husband I272003452884 not found in individuals map
+Warning: Wife I272003452889 not found in individuals map
+Family: H=I270159027562, W=I270159027143, Children=0
+Warning: Husband I270159027562 not found in individuals map
+Warning: Wife I270159027143 not found in individuals map
+Family: H=I270101230648, W=I270101230631, Children=0
+Warning: Husband I270101230648 not found in individuals map
+Warning: Wife I270101230631 not found in individuals map
+Family: H=I270101357076, W=I270101357114, Children=1
+Warning: Husband I270101357076 not found in individuals map
+Warning: Wife I270101357114 not found in individuals map
+Family: H=I270101058601, W=I270101058696, Children=3
+Warning: Husband I270101058601 not found in individuals map
+Warning: Wife I270101058696 not found in individuals map
+Family: H=I270101046290, W=I270101046291, Children=1
+Warning: Husband I270101046290 not found in individuals map
+Warning: Wife I270101046291 not found in individuals map
+Family: H=I270101358603, W=I270101358721, Children=2
+Warning: Husband I270101358603 not found in individuals map
+Warning: Wife I270101358721 not found in individuals map
+Family: H=I270101048569, W=I270101048519, Children=5
+Warning: Husband I270101048569 not found in individuals map
+Warning: Wife I270101048519 not found in individuals map
+Family: H=I270159001870, W=I270159020299, Children=2
+Warning: Husband I270159001870 not found in individuals map
+Warning: Wife I270159020299 not found in individuals map
+Family: H=I270043616880, W=I270043616881, Children=3
+Warning: Husband I270043616880 not found in individuals map
+Warning: Wife I270043616881 not found in individuals map
+Family: H=I270101052050, W=I270101052126, Children=2
+Warning: Husband I270101052050 not found in individuals map
+Warning: Wife I270101052126 not found in individuals map
+Family: H=I270043615781, W=I270043615782, Children=9
+Warning: Husband I270043615781 not found in individuals map
+Warning: Wife I270043615782 not found in individuals map
+Family: H=I270101065373, W=I270101065404, Children=2
+Warning: Husband I270101065373 not found in individuals map
+Warning: Wife I270101065404 not found in individuals map
+Family: H=I270101063312, W=I270101063338, Children=3
+Warning: Husband I270101063312 not found in individuals map
+Warning: Wife I270101063338 not found in individuals map
+Family: H=I270043616285, W=I270043616286, Children=3
+Warning: Husband I270043616285 not found in individuals map
+Warning: Wife I270043616286 not found in individuals map
+Family: H=I270101378160, W=none, Children=2
+Family: H=I272514179280, W=none, Children=1
+Family: H=none, W=I270158906638, Children=1
+Family: H=I270158907833, W=none, Children=1
+Family: H=I270158907781, W=none, Children=1
+Family: H=I270159000379, W=none, Children=1
+Family: H=none, W=I270043615973, Children=1
+Family: H=none, W=I270043615643, Children=5
+Returning 402 individuals
+familyData.ts: Loaded 402 members
+Found 402 individuals in GEDCOM
+First INDI node structure: {
+  "type": "INDI",
+  "data": {
+    "formal_name": "INDIVIDUAL",
+    "xref_id": "@I270043615371@"
+  },
+  "children": [
+    {
+      "type": "NAME",
+      "data": {
+        "formal_name": "NAME"
+      },
+      "value": "Aloizie (Louise) /Cozl/",
+      "children": [
+        {
+          "type": "GIVN",
+
+Warning: No pointer found for individual, using fallback: INDI_0
+Parsing individual: INDI_0 - Aloizie (Louise) Cozl
+Parsing individual: INDI_1 - Ondrej Cozl
+Total individuals parsed: 402
+First 5 individual IDs stored in map: [ 'INDI_0', 'INDI_1', 'INDI_2', 'INDI_3', 'INDI_4' ]
+Found 115 families in GEDCOM
+First family HUSB node: {
+  "type": "HUSB",
+  "data": {
+    "formal_name": "HUSBAND",
+    "pointer": "@I270043616228@"
+  },
+  "children": []
+}
+Family: H=I270043616228, W=I270043616229, Children=6
+Warning: Husband I270043616228 not found in individuals map
+Warning: Wife I270043616229 not found in individuals map
+Family: H=I270101046136, W=I270101046137, Children=2
+Warning: Husband I270101046136 not found in individuals map
+Warning: Wife I270101046137 not found in individuals map
+Family: H=I270101210922, W=I270101210998, Children=1
+Warning: Husband I270101210922 not found in individuals map
+Warning: Wife I270101210998 not found in individuals map
+Family: H=I270101042042, W=I270101042043, Children=10
+Warning: Husband I270101042042 not found in individuals map
+Warning: Wife I270101042043 not found in individuals map
+Family: H=I270101225186, W=I270101224306, Children=5
+Warning: Husband I270101225186 not found in individuals map
+Warning: Wife I270101224306 not found in individuals map
+Family: H=I272032207958, W=I272032207960, Children=4
+Warning: Husband I272032207958 not found in individuals map
+Warning: Wife I272032207960 not found in individuals map
+Family: H=I270101353636, W=I270101042047, Children=10
+Warning: Husband I270101353636 not found in individuals map
+Warning: Wife I270101042047 not found in individuals map
+Family: H=I270101061493, W=I270101061507, Children=1
+Warning: Husband I270101061493 not found in individuals map
+Warning: Wife I270101061507 not found in individuals map
+Family: H=I270101209979, W=I270101209871, Children=0
+Warning: Husband I270101209979 not found in individuals map
+Warning: Wife I270101209871 not found in individuals map
+Family: H=I270101354208, W=I270044025291, Children=1
+Warning: Husband I270101354208 not found in individuals map
+Warning: Wife I270044025291 not found in individuals map
+Family: H=I270101206881, W=I270101208085, Children=4
+Warning: Husband I270101206881 not found in individuals map
+Warning: Wife I270101208085 not found in individuals map
+Family: H=I270043616106, W=I270044025289, Children=9
+Warning: Husband I270043616106 not found in individuals map
+Warning: Wife I270044025289 not found in individuals map
+Family: H=I270101214062, W=I270101214150, Children=0
+Warning: Husband I270101214062 not found in individuals map
+Warning: Wife I270101214150 not found in individuals map
+Family: H=I270159024793, W=I270159024899, Children=0
+Warning: Husband I270159024793 not found in individuals map
+Warning: Wife I270159024899 not found in individuals map
+Family: H=I270101374805, W=I270101376021, Children=4
+Warning: Husband I270101374805 not found in individuals map
+Warning: Wife I270101376021 not found in individuals map
+Family: H=I270043615786, W=I270043617221, Children=0
+Warning: Husband I270043615786 not found in individuals map
+Warning: Wife I270043617221 not found in individuals map
+Family: H=I270101215519, W=I270101215572, Children=1
+Warning: Husband I270101215519 not found in individuals map
+Warning: Wife I270101215572 not found in individuals map
+Family: H=I270043615786, W=I270043617216, Children=4
+Warning: Husband I270043615786 not found in individuals map
+Warning: Wife I270043617216 not found in individuals map
+Family: H=I270043616707, W=I270043615650, Children=0
+Warning: Husband I270043616707 not found in individuals map
+Warning: Wife I270043615650 not found in individuals map
+Family: H=I270043616287, W=I270101374802, Children=5
+Warning: Husband I270043616287 not found in individuals map
+Warning: Wife I270101374802 not found in individuals map
+Family: H=I270101206877, W=I270101206878, Children=2
+Warning: Husband I270101206877 not found in individuals map
+Warning: Wife I270101206878 not found in individuals map
+Family: H=I270101054194, W=I270101054291, Children=6
+Warning: Husband I270101054194 not found in individuals map
+Warning: Wife I270101054291 not found in individuals map
+Family: H=I270151480897, W=I270151480778, Children=4
+Warning: Husband I270151480897 not found in individuals map
+Warning: Wife I270151480778 not found in individuals map
+Family: H=I270043615648, W=I270043616501, Children=0
+Warning: Husband I270043615648 not found in individuals map
+Warning: Wife I270043616501 not found in individuals map
+Family: H=I270101208367, W=I270101208370, Children=1
+Warning: Husband I270101208367 not found in individuals map
+Warning: Wife I270101208370 not found in individuals map
+Family: H=I270158648013, W=I270158646820, Children=0
+Warning: Husband I270158648013 not found in individuals map
+Warning: Wife I270158646820 not found in individuals map
+Family: H=I270043615651, W=I270043616389, Children=0
+Warning: Husband I270043615651 not found in individuals map
+Warning: Wife I270043616389 not found in individuals map
+Family: H=I270101042483, W=I270101042484, Children=6
+Warning: Husband I270101042483 not found in individuals map
+Warning: Wife I270101042484 not found in individuals map
+Family: H=I270159000114, W=I270159167176, Children=6
+Warning: Husband I270159000114 not found in individuals map
+Warning: Wife I270159167176 not found in individuals map
+Family: H=I272256702344, W=I272272107738, Children=1
+Warning: Husband I272256702344 not found in individuals map
+Warning: Wife I272272107738 not found in individuals map
+Family: H=I270101042485, W=I270101228956, Children=7
+Warning: Husband I270101042485 not found in individuals map
+Warning: Wife I270101228956 not found in individuals map
+Family: H=I270101042485, W=I270101228964, Children=0
+Warning: Husband I270101042485 not found in individuals map
+Warning: Wife I270101228964 not found in individuals map
+Family: H=I270101357842, W=I270101357880, Children=1
+Warning: Husband I270101357842 not found in individuals map
+Warning: Wife I270101357880 not found in individuals map
+Family: H=I270159167194, W=I270159167189, Children=1
+Warning: Husband I270159167194 not found in individuals map
+Warning: Wife I270159167189 not found in individuals map
+Family: H=I270101210700, W=I270101061410, Children=0
+Warning: Husband I270101210700 not found in individuals map
+Warning: Wife I270101061410 not found in individuals map
+Family: H=I270043615787, W=I270101044505, Children=4
+Warning: Husband I270043615787 not found in individuals map
+Warning: Wife I270101044505 not found in individuals map
+Family: H=I270101056282, W=I270101056253, Children=1
+Warning: Husband I270101056282 not found in individuals map
+Warning: Wife I270101056253 not found in individuals map
+Family: H=I270101044508, W=I270101047331, Children=0
+Warning: Husband I270101044508 not found in individuals map
+Warning: Wife I270101047331 not found in individuals map
+Family: H=I270043615631, W=I270043615633, Children=9
+Warning: Husband I270043615631 not found in individuals map
+Warning: Wife I270043615633 not found in individuals map
+Family: H=I270043615637, W=I270044281765, Children=4
+Warning: Husband I270043615637 not found in individuals map
+Warning: Wife I270044281765 not found in individuals map
+Family: H=I270101359876, W=I270101359863, Children=0
+Warning: Husband I270101359876 not found in individuals map
+Warning: Wife I270101359863 not found in individuals map
+Family: H=I270101209320, W=I270101209349, Children=1
+Warning: Husband I270101209320 not found in individuals map
+Warning: Wife I270101209349 not found in individuals map
+Family: H=I270044282673, W=I270043615639, Children=0
+Warning: Husband I270044282673 not found in individuals map
+Warning: Wife I270043615639 not found in individuals map
+Family: H=I270159021811, W=I270159021970, Children=2
+Warning: Husband I270159021811 not found in individuals map
+Warning: Wife I270159021970 not found in individuals map
+Family: H=I270043615635, W=I270044023522, Children=0
+Warning: Husband I270043615635 not found in individuals map
+Warning: Wife I270044023522 not found in individuals map
+Family: H=I270043615635, W=I270044023523, Children=0
+Warning: Husband I270043615635 not found in individuals map
+Warning: Wife I270044023523 not found in individuals map
+Family: H=I270043616608, W=I270043615644, Children=0
+Warning: Husband I270043616608 not found in individuals map
+Warning: Wife I270043615644 not found in individuals map
+Family: H=I270101211353, W=I270101211405, Children=1
+Warning: Husband I270101211353 not found in individuals map
+Warning: Wife I270101211405 not found in individuals map
+Family: H=I270043615647, W=I270043616769, Children=0
+Warning: Husband I270043615647 not found in individuals map
+Warning: Wife I270043616769 not found in individuals map
+Family: H=I270044023398, W=I270043615640, Children=0
+Warning: Husband I270044023398 not found in individuals map
+Warning: Wife I270043615640 not found in individuals map
+Family: H=I270043615641, W=I270044281951, Children=3
+Warning: Husband I270043615641 not found in individuals map
+Warning: Wife I270044281951 not found in individuals map
+Family: H=I270043615783, W=I270044282791, Children=6
+Warning: Husband I270043615783 not found in individuals map
+Warning: Wife I270044282791 not found in individuals map
+Family: H=I270044282475, W=I270043615642, Children=8
+Warning: Husband I270044282475 not found in individuals map
+Warning: Wife I270043615642 not found in individuals map
+Family: H=I270101226189, W=I270101226249, Children=2
+Warning: Husband I270101226189 not found in individuals map
+Warning: Wife I270101226249 not found in individuals map
+Family: H=I270043615643, W=I270044023852, Children=0
+Warning: Husband I270043615643 not found in individuals map
+Warning: Wife I270044023852 not found in individuals map
+Family: H=I270101230583, W=I270101230618, Children=3
+Warning: Husband I270101230583 not found in individuals map
+Warning: Wife I270101230618 not found in individuals map
+Family: H=I270101226995, W=I270101225187, Children=5
+Warning: Husband I270101226995 not found in individuals map
+Warning: Wife I270101225187 not found in individuals map
+Family: H=I270101353459, W=I270101353471, Children=1
+Warning: Husband I270101353459 not found in individuals map
+Warning: Wife I270101353471 not found in individuals map
+Family: H=I270043616108, W=I270101048860, Children=6
+Warning: Husband I270043616108 not found in individuals map
+Warning: Wife I270101048860 not found in individuals map
+Family: H=I270043616104, W=I270043616105, Children=5
+Warning: Husband I270043616104 not found in individuals map
+Warning: Wife I270043616105 not found in individuals map
+Family: H=I270043616107, W=I270101048365, Children=5
+Warning: Husband I270043616107 not found in individuals map
+Warning: Wife I270101048365 not found in individuals map
+Family: H=I270043615784, W=I270044024139, Children=6
+Warning: Husband I270043615784 not found in individuals map
+Warning: Wife I270044024139 not found in individuals map
+Family: H=I270101212640, W=I270101212753, Children=1
+Warning: Husband I270101212640 not found in individuals map
+Warning: Wife I270101212753 not found in individuals map
+Family: H=I270101226464, W=I270101226474, Children=1
+Warning: Husband I270101226464 not found in individuals map
+Warning: Wife I270101226474 not found in individuals map
+Family: H=I270101353419, W=I270101353451, Children=1
+Warning: Husband I270101353419 not found in individuals map
+Warning: Wife I270101353451 not found in individuals map
+Family: H=I270159020500, W=I270159020570, Children=1
+Warning: Husband I270159020500 not found in individuals map
+Warning: Wife I270159020570 not found in individuals map
+Family: H=I270101051864, W=I270044024002, Children=5
+Warning: Husband I270101051864 not found in individuals map
+Warning: Wife I270044024002 not found in individuals map
+Family: H=I270101230543, W=I270101230557, Children=2
+Warning: Husband I270101230543 not found in individuals map
+Warning: Wife I270101230557 not found in individuals map
+Family: H=I270101354438, W=I270101059219, Children=5
+Warning: Husband I270101354438 not found in individuals map
+Warning: Wife I270101059219 not found in individuals map
+Family: H=I270159025210, W=I270159001355, Children=1
+Warning: Husband I270159025210 not found in individuals map
+Warning: Wife I270159001355 not found in individuals map
+Family: H=I272003211853, W=I272003211868, Children=1
+Warning: Husband I272003211853 not found in individuals map
+Warning: Wife I272003211868 not found in individuals map
+Family: H=I270101053458, W=I270101053374, Children=0
+Warning: Husband I270101053458 not found in individuals map
+Warning: Wife I270101053374 not found in individuals map
+Family: H=I270101058580, W=I270101136317, Children=0
+Warning: Husband I270101058580 not found in individuals map
+Warning: Wife I270101136317 not found in individuals map
+Family: H=I270101212602, W=I270101062672, Children=0
+Warning: Husband I270101212602 not found in individuals map
+Warning: Wife I270101062672 not found in individuals map
+Family: H=I270159025624, W=I270159025747, Children=0
+Warning: Husband I270159025624 not found in individuals map
+Warning: Wife I270159025747 not found in individuals map
+Family: H=I270159191128, W=I270159191151, Children=1
+Warning: Husband I270159191128 not found in individuals map
+Warning: Wife I270159191151 not found in individuals map
+Family: H=I270043615785, W=I270101066146, Children=6
+Warning: Husband I270043615785 not found in individuals map
+Warning: Wife I270101066146 not found in individuals map
+Family: H=I270159000368, W=I270159000172, Children=5
+Warning: Husband I270159000368 not found in individuals map
+Warning: Wife I270159000172 not found in individuals map
+Family: H=I270101211765, W=I270101211811, Children=0
+Warning: Husband I270101211765 not found in individuals map
+Warning: Wife I270101211811 not found in individuals map
+Family: H=I270043615975, W=I270101044381, Children=7
+Warning: Husband I270043615975 not found in individuals map
+Warning: Wife I270101044381 not found in individuals map
+Family: H=I270043615969, W=I270043615970, Children=6
+Warning: Husband I270043615969 not found in individuals map
+Warning: Wife I270043615970 not found in individuals map
+Family: H=I270043615969, W=I270043616882, Children=0
+Warning: Husband I270043615969 not found in individuals map
+Warning: Wife I270043616882 not found in individuals map
+Family: H=I270044023999, W=I270043615971, Children=8
+Warning: Husband I270044023999 not found in individuals map
+Warning: Wife I270043615971 not found in individuals map
+Family: H=I270101376025, W=I270101378162, Children=0
+Warning: Husband I270101376025 not found in individuals map
+Warning: Wife I270101378162 not found in individuals map
+Family: H=I270043615476, W=I270043615371, Children=0
+Warning: Husband I270043615476 not found in individuals map
+Warning: Wife I270043615371 not found in individuals map
+Family: H=I270043615372, W=I270043615473, Children=8
+Warning: Husband I270043615372 not found in individuals map
+Warning: Wife I270043615473 not found in individuals map
+Family: H=I270043615474, W=I270043615371, Children=0
+Warning: Husband I270043615474 not found in individuals map
+Warning: Wife I270043615371 not found in individuals map
+Family: H=I270043615475, W=I270043615371, Children=0
+Warning: Husband I270043615475 not found in individuals map
+Warning: Wife I270043615371 not found in individuals map
+Family: H=I270158644657, W=I270158644625, Children=6
+Warning: Husband I270158644657 not found in individuals map
+Warning: Wife I270158644625 not found in individuals map
+Family: H=I270101046873, W=I270101046808, Children=2
+Warning: Husband I270101046873 not found in individuals map
+Warning: Wife I270101046808 not found in individuals map
+Family: H=I270101044382, W=I270101206621, Children=0
+Warning: Husband I270101044382 not found in individuals map
+Warning: Wife I270101206621 not found in individuals map
+Family: H=I270159004628, W=I270159004603, Children=2
+Warning: Husband I270159004628 not found in individuals map
+Warning: Wife I270159004603 not found in individuals map
+Family: H=I272003452884, W=I272003452889, Children=1
+Warning: Husband I272003452884 not found in individuals map
+Warning: Wife I272003452889 not found in individuals map
+Family: H=I270159027562, W=I270159027143, Children=0
+Warning: Husband I270159027562 not found in individuals map
+Warning: Wife I270159027143 not found in individuals map
+Family: H=I270101230648, W=I270101230631, Children=0
+Warning: Husband I270101230648 not found in individuals map
+Warning: Wife I270101230631 not found in individuals map
+Family: H=I270101357076, W=I270101357114, Children=1
+Warning: Husband I270101357076 not found in individuals map
+Warning: Wife I270101357114 not found in individuals map
+Family: H=I270101058601, W=I270101058696, Children=3
+Warning: Husband I270101058601 not found in individuals map
+Warning: Wife I270101058696 not found in individuals map
+Family: H=I270101046290, W=I270101046291, Children=1
+Warning: Husband I270101046290 not found in individuals map
+Warning: Wife I270101046291 not found in individuals map
+Family: H=I270101358603, W=I270101358721, Children=2
+Warning: Husband I270101358603 not found in individuals map
+Warning: Wife I270101358721 not found in individuals map
+Family: H=I270101048569, W=I270101048519, Children=5
+Warning: Husband I270101048569 not found in individuals map
+Warning: Wife I270101048519 not found in individuals map
+Family: H=I270159001870, W=I270159020299, Children=2
+Warning: Husband I270159001870 not found in individuals map
+Warning: Wife I270159020299 not found in individuals map
+Family: H=I270043616880, W=I270043616881, Children=3
+Warning: Husband I270043616880 not found in individuals map
+Warning: Wife I270043616881 not found in individuals map
+Family: H=I270101052050, W=I270101052126, Children=2
+Warning: Husband I270101052050 not found in individuals map
+Warning: Wife I270101052126 not found in individuals map
+Family: H=I270043615781, W=I270043615782, Children=9
+Warning: Husband I270043615781 not found in individuals map
+Warning: Wife I270043615782 not found in individuals map
+Family: H=I270101065373, W=I270101065404, Children=2
+Warning: Husband I270101065373 not found in individuals map
+Warning: Wife I270101065404 not found in individuals map
+Family: H=I270101063312, W=I270101063338, Children=3
+Warning: Husband I270101063312 not found in individuals map
+Warning: Wife I270101063338 not found in individuals map
+Family: H=I270043616285, W=I270043616286, Children=3
+Warning: Husband I270043616285 not found in individuals map
+Warning: Wife I270043616286 not found in individuals map
+Family: H=I270101378160, W=none, Children=2
+Family: H=I272514179280, W=none, Children=1
+Family: H=none, W=I270158906638, Children=1
+Family: H=I270158907833, W=none, Children=1
+Family: H=I270158907781, W=none, Children=1
+Family: H=I270159000379, W=none, Children=1
+Family: H=none, W=I270043615973, Children=1
+Family: H=none, W=I270043615643, Children=5
+Returning 402 individuals
+familyData.ts: Loaded 402 members
+Member Aloizie (Louise) Cozl: Parents=0, Spouses=0, Children=0, Siblings=0
+Member parentIds: []
+Member spouseIds: []
+ GET /member/INDI_0 200 in 1060ms
+[?25h

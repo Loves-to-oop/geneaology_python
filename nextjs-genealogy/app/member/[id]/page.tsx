@@ -16,6 +16,10 @@ export default function MemberPage({ params }: { params: { id: string } }) {
   const spouses = getSpouses(member);
   const siblings = getSiblings(member);
 
+  console.log(`Member ${member.name}: Parents=${parents.length}, Spouses=${spouses.length}, Children=${children.length}, Siblings=${siblings.length}`);
+  console.log(`Member parentIds:`, member.parentIds);
+  console.log(`Member spouseIds:`, member.spouseIds);
+
   return (
     <div className="max-w-4xl mx-auto">
       <FamilyTree
