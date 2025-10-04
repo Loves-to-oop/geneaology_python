@@ -39,10 +39,13 @@ export default function HomeClient({ members }: HomeClientProps) {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8 md:p-12 mb-12 shadow-xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-          Welcome to Our Family Tree
+          The Cozl-Maidl Family Tree
         </h1>
-        <p className="text-xl text-blue-100 text-center max-w-2xl mx-auto">
-          Explore {members.length} family members and discover your heritage
+        <p className="text-xl text-blue-100 text-center max-w-3xl mx-auto mb-3">
+          Explore {members.length} family members from the Cozl and Maidl families
+        </p>
+        <p className="text-md text-blue-200 text-center max-w-2xl mx-auto">
+          📍 Originating from Kolovec, West Bohemia, Czech Republic
         </p>
       </div>
 

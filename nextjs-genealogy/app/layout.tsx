@@ -3,8 +3,8 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Family Genealogy Tree",
-  description: "Explore our family tree and genealogy - Discover your heritage",
+  title: "Cozl-Maidl Family Tree",
+  description: "Explore the Cozl and Maidl family genealogy from Kolovec, Czech Republic",
 };
 
 export default function RootLayout({
@@ -24,9 +24,9 @@ export default function RootLayout({
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition">
-                    Family Genealogy
+                    Cozl-Maidl Family
                   </h1>
-                  <p className="text-xs text-gray-500">Discover Your Heritage</p>
+                  <p className="text-xs text-gray-500">Kolovec, Czech Republic</p>
                 </div>
               </Link>
               <nav className="hidden md:flex space-x-2">
@@ -51,8 +51,8 @@ export default function RootLayout({
         </main>
         <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-8 mt-12">
           <div className="container mx-auto px-4 text-center">
-            <p className="text-gray-300 mb-2">&copy; 2025 Family Genealogy Tree</p>
-            <p className="text-sm text-gray-400">Built with Next.js & GEDCOM</p>
+            <p className="text-gray-300 mb-2">&copy; 2025 Cozl-Maidl Family Tree</p>
+            <p className="text-sm text-gray-400">Tracing the history of the Cozl and Maidl families from Kolovec, Czech Republic</p>
           </div>
         </footer>
       </body>
