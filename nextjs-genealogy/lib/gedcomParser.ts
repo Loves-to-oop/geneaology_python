@@ -15,9 +15,10 @@ export interface FamilyMember {
 }
 
 interface GedcomNode {
-  tag: string;
-  data: string;
-  tree: GedcomNode[];
+  type: string;
+  value?: string;
+  data?: any;
+  children: GedcomNode[];
 }
 
 function extractYear(dateString: string): number | null {
@@ -27,22 +28,20 @@ function extractYear(dateString: string): number | null {
 }
 
 function getNodeValue(node: GedcomNode | undefined): string {
-  return node?.data || '';
+  return node?.value || '';
 }
 
 function findNode(nodes: GedcomNode[], tag: string): GedcomNode | undefined {
-  return nodes?.find(n => n.tag === tag);
+  return nodes?.find(n => n.type === tag);
 }
 
 function findAllNodes(nodes: GedcomNode[], tag: string): GedcomNode[] {
-  return nodes?.filter(n => n.tag === tag) || [];
+  return nodes?.filter(n => n.type === tag) || [];
 }
 
 export function parseGedcomFile(filePath: string): FamilyMember[] {
   const gedcomContent = fs.readFileSync(filePath, 'utf-8');
   const parsed = parseGedcom.parse(gedcomContent);
-
-  console.log('Parsed GEDCOM structure:', JSON.stringify(parsed, null, 2).substring(0, 500));
 
   const individuals: Map<string, FamilyMember> = new Map();
   const families: Map<string, { husbandId?: string; wifeId?: string; childIds: string[] }> = new Map();
@@ -51,23 +50,34 @@ export function parseGedcomFile(filePath: string): FamilyMember[] {
   let parsedArray = Array.isArray(parsed) ? parsed : (parsed.children || []);
   const indiNodes = findAllNodes(parsedArray, 'INDI');
 
-  for (const indi of indiNodes) {
-    const id = indi.data.replace('@', '').replace('@', '');
+  console.log(`Found ${indiNodes.length} individuals in GEDCOM`);
 
-    const nameNode = findNode(indi.tree, 'NAME');
+  for (const indi of indiNodes) {
+    // Extract ID from pointer - handle different formats
+    let id = indi.data?.pointer?.replace(/@/g, '') || '';
+
+    // If no ID from pointer, try to generate one from the individual
+    if (!id) {
+      // Use index as fallback ID
+      id = `INDI_${indiNodes.indexOf(indi)}`;
+    }
+
+    const nameNode = findNode(indi.children, 'NAME');
     const name = getNodeValue(nameNode)?.replace(/\//g, '').trim() || 'Unknown';
 
-    const birthNode = findNode(indi.tree, 'BIRT');
-    const birthDateNode = birthNode ? findNode(birthNode.tree, 'DATE') : undefined;
+    console.log(`Parsing individual: ${id} - ${name}`);
+
+    const birthNode = findNode(indi.children, 'BIRT');
+    const birthDateNode = birthNode ? findNode(birthNode.children, 'DATE') : undefined;
     const birthDate = getNodeValue(birthDateNode);
     const birthYear = extractYear(birthDate);
 
-    const deathNode = findNode(indi.tree, 'DEAT');
-    const deathDateNode = deathNode ? findNode(deathNode.tree, 'DATE') : undefined;
+    const deathNode = findNode(indi.children, 'DEAT');
+    const deathDateNode = deathNode ? findNode(deathNode.children, 'DATE') : undefined;
     const deathDate = getNodeValue(deathDateNode);
     const deathYear = extractYear(deathDate);
 
-    const sexNode = findNode(indi.tree, 'SEX');
+    const sexNode = findNode(indi.children, 'SEX');
     const sex = getNodeValue(sexNode);
 
     individuals.set(id, {
@@ -83,20 +93,22 @@ export function parseGedcomFile(filePath: string): FamilyMember[] {
     });
   }
 
+  console.log(`Total individuals parsed: ${individuals.size}`);
+
   // Parse families
   const famNodes = findAllNodes(parsedArray, 'FAM');
 
   for (const fam of famNodes) {
-    const famId = fam.data.replace('@', '').replace('@', '');
+    const famId = fam.data?.pointer?.replace('@', '').replace('@', '') || '';
 
-    const husbNode = findNode(fam.tree, 'HUSB');
-    const husbandId = husbNode ? getNodeValue(husbNode).replace('@', '').replace('@', '') : undefined;
+    const husbNode = findNode(fam.children, 'HUSB');
+    const husbandId = husbNode?.data?.pointer?.replace('@', '').replace('@', '') || husbNode?.value?.replace('@', '').replace('@', '');
 
-    const wifeNode = findNode(fam.tree, 'WIFE');
-    const wifeId = wifeNode ? getNodeValue(wifeNode).replace('@', '').replace('@', '') : undefined;
+    const wifeNode = findNode(fam.children, 'WIFE');
+    const wifeId = wifeNode?.data?.pointer?.replace('@', '').replace('@', '') || wifeNode?.value?.replace('@', '').replace('@', '');
 
-    const childNodes = findAllNodes(fam.tree, 'CHIL');
-    const childIds = childNodes.map(c => getNodeValue(c).replace('@', '').replace('@', ''));
+    const childNodes = findAllNodes(fam.children, 'CHIL');
+    const childIds = childNodes.map(c => c.data?.pointer?.replace('@', '').replace('@', '') || c.value?.replace('@', '').replace('@', '')).filter(Boolean);
 
     families.set(famId, { husbandId, wifeId, childIds });
 
@@ -126,7 +138,9 @@ export function parseGedcomFile(filePath: string): FamilyMember[] {
     }
   }
 
-  return Array.from(individuals.values());
+  const result = Array.from(individuals.values());
+  console.log(`Returning ${result.length} individuals`);
+  return result;
 }
 
 // Load family data from GEDCOM file
