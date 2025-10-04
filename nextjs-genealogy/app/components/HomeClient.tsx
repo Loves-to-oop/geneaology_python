@@ -97,11 +97,6 @@ export default function HomeClient({ members }: HomeClientProps) {
                 <h3 className="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition flex-1">
                   {member.name}
                 </h3>
-                {!member.deathDate && !member.deathYear && (
-                  <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">
-                    Living
-                  </span>
-                )}
               </div>
               <div className="space-y-1 text-sm text-gray-600">
                 {(member.birthDate || member.birthYear) && (

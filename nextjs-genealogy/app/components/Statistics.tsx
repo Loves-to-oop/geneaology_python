@@ -8,7 +8,6 @@ interface StatisticsProps {
 
 export default function Statistics({ members }: StatisticsProps) {
   const totalMembers = members.length;
-  const livingMembers = members.filter(m => !m.deathYear && !m.deathDate).length;
   const maleMembers = members.filter(m => m.sex === 'M').length;
   const femaleMembers = members.filter(m => m.sex === 'F').length;
 
@@ -19,8 +18,9 @@ export default function Statistics({ members }: StatisticsProps) {
 
   const avgAge = ages.length > 0 ? Math.round(ages.reduce((a, b) => a + b, 0) / ages.length) : 0;
 
-  // Find oldest birth year
+  // Find oldest and newest birth years
   const oldestYear = Math.min(...members.filter(m => m.birthYear).map(m => m.birthYear!));
+  const newestYear = Math.max(...members.filter(m => m.birthYear).map(m => m.birthYear!));
 
   // Count unique places
   const places = new Set(
@@ -31,10 +31,10 @@ export default function Statistics({ members }: StatisticsProps) {
 
   const stats = [
     { label: 'Total Family Members', value: totalMembers, icon: '👥', color: 'blue' },
-    { label: 'Living Members', value: livingMembers, icon: '💚', color: 'green' },
     { label: 'Male / Female', value: `${maleMembers} / ${femaleMembers}`, icon: '⚖️', color: 'purple' },
     { label: 'Average Lifespan', value: avgAge > 0 ? `${avgAge} years` : 'N/A', icon: '📅', color: 'orange' },
     { label: 'Earliest Birth Year', value: oldestYear !== Infinity ? oldestYear : 'Unknown', icon: '📜', color: 'amber' },
+    { label: 'Latest Birth Year', value: newestYear !== -Infinity ? newestYear : 'Unknown', icon: '🕐', color: 'green' },
     { label: 'Unique Locations', value: places.size, icon: '🌍', color: 'teal' },
   ];
 

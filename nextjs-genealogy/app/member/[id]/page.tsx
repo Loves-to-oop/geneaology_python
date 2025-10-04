@@ -41,11 +41,6 @@ export default function MemberPage({ params }: { params: { id: string } }) {
               </span>
             )}
           </div>
-          {!member.deathDate && !member.deathYear && (
-            <span className="px-4 py-2 bg-green-100 text-green-700 rounded-full font-bold text-sm">
-              ● Living
-            </span>
-          )}
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
