@@ -29,4 +29,15 @@ export function getSpouses(member: FamilyMember): FamilyMember[] {
   return getFamilyMembers().filter(m => member.spouseIds?.includes(m.id));
 }
 
+export function getSiblings(member: FamilyMember): FamilyMember[] {
+  const parents = getParents(member);
+  if (parents.length === 0) return [];
+
+  // Find all children of the same parents
+  return getFamilyMembers().filter(m =>
+    m.id !== member.id && // Not the member themselves
+    m.parentIds.some(parentId => member.parentIds.includes(parentId)) // Share at least one parent
+  );
+}
+
 export type { FamilyMember };

@@ -1,6 +1,7 @@
-import { getMemberById, getParents, getChildren, getSpouses } from '@/lib/familyData';
+import { getMemberById, getParents, getChildren, getSpouses, getSiblings } from '@/lib/familyData';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import FamilyTree from '@/app/components/FamilyTree';
 
 export default function MemberPage({ params }: { params: { id: string } }) {
   const memberId = params.id;
@@ -13,9 +14,17 @@ export default function MemberPage({ params }: { params: { id: string } }) {
   const parents = getParents(member);
   const children = getChildren(member);
   const spouses = getSpouses(member);
+  const siblings = getSiblings(member);
 
   return (
     <div className="max-w-4xl mx-auto">
+      <FamilyTree
+        member={member}
+        parents={parents}
+        spouses={spouses}
+        children={children}
+        siblings={siblings}
+      />
       <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
         <h2 className="text-4xl font-bold text-gray-800 mb-6 border-b-4 border-blue-500 pb-3">
           {member.name}
