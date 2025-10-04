@@ -1,6 +1,7 @@
 'use client';
 
 import { FamilyMember } from '@/lib/familyData';
+import Link from 'next/link';
 
 interface StatisticsProps {
   members: FamilyMember[];
@@ -30,12 +31,12 @@ export default function Statistics({ members }: StatisticsProps) {
   );
 
   const stats = [
-    { label: 'Total Family Members', value: totalMembers, icon: '👥', color: 'blue' },
-    { label: 'Male / Female', value: `${maleMembers} / ${femaleMembers}`, icon: '⚖️', color: 'purple' },
-    { label: 'Average Lifespan', value: avgAge > 0 ? `${avgAge} years` : 'N/A', icon: '📅', color: 'orange' },
-    { label: 'Earliest Birth Year', value: oldestYear !== Infinity ? oldestYear : 'Unknown', icon: '📜', color: 'amber' },
-    { label: 'Latest Birth Year', value: newestYear !== -Infinity ? newestYear : 'Unknown', icon: '🕐', color: 'green' },
-    { label: 'Unique Locations', value: places.size, icon: '🌍', color: 'teal' },
+    { label: 'Total Family Members', value: totalMembers, icon: '👥', color: 'blue', link: null },
+    { label: 'Male / Female', value: `${maleMembers} / ${femaleMembers}`, icon: '⚖️', color: 'purple', link: null },
+    { label: 'Average Lifespan', value: avgAge > 0 ? `${avgAge} years` : 'N/A', icon: '📅', color: 'orange', link: null },
+    { label: 'Earliest Birth Year', value: oldestYear !== Infinity ? oldestYear : 'Unknown', icon: '📜', color: 'amber', link: null },
+    { label: 'Latest Birth Year', value: newestYear !== -Infinity ? newestYear : 'Unknown', icon: '🕐', color: 'green', link: null },
+    { label: 'Unique Locations', value: places.size, icon: '🌍', color: 'teal', link: '/locations' },
   ];
 
   const colorClasses = {
@@ -53,18 +54,38 @@ export default function Statistics({ members }: StatisticsProps) {
         📊 Family Statistics
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {stats.map((stat, idx) => (
-          <div
-            key={idx}
-            className={`${colorClasses[stat.color as keyof typeof colorClasses]} border-2 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow`}
-          >
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-3xl">{stat.icon}</span>
-              <span className="text-3xl font-bold">{stat.value}</span>
+        {stats.map((stat, idx) => {
+          const content = (
+            <>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-3xl">{stat.icon}</span>
+                <span className="text-3xl font-bold">{stat.value}</span>
+              </div>
+              <p className="text-sm font-medium opacity-80">{stat.label}</p>
+            </>
+          );
+
+          if (stat.link) {
+            return (
+              <Link
+                key={idx}
+                href={stat.link}
+                className={`${colorClasses[stat.color as keyof typeof colorClasses]} border-2 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all cursor-pointer hover:scale-105`}
+              >
+                {content}
+              </Link>
+            );
+          }
+
+          return (
+            <div
+              key={idx}
+              className={`${colorClasses[stat.color as keyof typeof colorClasses]} border-2 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow`}
+            >
+              {content}
             </div>
-            <p className="text-sm font-medium opacity-80">{stat.label}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

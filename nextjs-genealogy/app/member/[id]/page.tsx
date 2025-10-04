@@ -54,9 +54,12 @@ export default function MemberPage({ params }: { params: { id: string } }) {
                 </div>
               </div>
               {member.birthPlace && (
-                <p className="text-sm text-gray-600 mt-2 flex items-center">
+                <Link
+                  href="/locations"
+                  className="text-sm text-blue-600 hover:text-blue-800 mt-2 flex items-center hover:underline"
+                >
                   <span className="mr-1">📍</span> {member.birthPlace}
-                </p>
+                </Link>
               )}
             </div>
           )}
@@ -71,9 +74,12 @@ export default function MemberPage({ params }: { params: { id: string } }) {
                 </div>
               </div>
               {member.deathPlace && (
-                <p className="text-sm text-gray-600 mt-2 flex items-center">
+                <Link
+                  href="/locations"
+                  className="text-sm text-blue-600 hover:text-blue-800 mt-2 flex items-center hover:underline"
+                >
                   <span className="mr-1">📍</span> {member.deathPlace}
-                </p>
+                </Link>
               )}
             </div>
           )}
@@ -163,13 +169,22 @@ export default function MemberPage({ params }: { params: { id: string } }) {
         )}
       </div>
 
-      <Link
-        href="/"
-        className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg"
-      >
-        <span>←</span>
-        <span>Back to All Members</span>
-      </Link>
+      <div className="flex gap-4">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg"
+        >
+          <span>←</span>
+          <span>Back to All Members</span>
+        </Link>
+        <Link
+          href="/locations"
+          className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-6 rounded-xl transition-all shadow-md hover:shadow-lg border-2 border-gray-300"
+        >
+          <span>📍</span>
+          <span>View Locations</span>
+        </Link>
+      </div>
     </div>
   );
 }

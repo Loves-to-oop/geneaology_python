@@ -107,8 +107,9 @@ export default function HomeClient({ members }: HomeClientProps) {
                   </p>
                 )}
                 {member.birthPlace && (
-                  <p className="text-xs text-gray-500 truncate">
-                    📍 {member.birthPlace}
+                  <p className="text-xs text-blue-600 hover:text-blue-800 truncate flex items-center">
+                    <span className="mr-1">📍</span>
+                    <span className="hover:underline">{member.birthPlace}</span>
                   </p>
                 )}
                 {(member.deathDate || member.deathYear) && (
